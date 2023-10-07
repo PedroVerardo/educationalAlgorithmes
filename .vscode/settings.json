@@ -1,0 +1,11 @@
+{
+    "rust-analyzer.linkedProjects": [
+        "./Rust_Implementation/Cargo.toml",
+        "./Rust_Implementation/Cargo.toml",
+        "./Rust_Implementation/Cargo.toml",
+        "./Rust_Implementation/Cargo.toml",
+        "./Rust_Implementation/Cargo.toml",
+        "./Rust_Implementation/Cargo.toml"
+    ],
+    "rust-analyzer.showUnlinkedFileNotification": false
+}
