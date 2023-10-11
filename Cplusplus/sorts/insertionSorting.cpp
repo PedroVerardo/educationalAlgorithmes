@@ -1,7 +1,7 @@
 #include "../sorting.h"
 #include <limits.h>
 /****************************************info*************************************************
- * A insertionSort apesar de ter complexidade o(n^2) é bastante usada em aglgoritimo hibridos,
+ * A insertionSort apesar de ter complexidade o(n^2) é bastante usada em aglgoritimos hibridos,
  * ela funciona muito bem em arrays de 10 a 20 itens, porem em comparaçao a selection sort a 
  * insertion sort possui um numbero de escritas maior, fazendo com que quando a escrite é cara
  * a selection sort se torna melhor.

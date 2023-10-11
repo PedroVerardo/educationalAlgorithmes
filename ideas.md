@@ -1,0 +1,5 @@
+- Replicação de sort(animação)
+- Editor de texto online e compilador/interpretador
+- Visualização de estruturas de dados
+    - Interação com as estruturas de dados
+- Disassemble(talvez)

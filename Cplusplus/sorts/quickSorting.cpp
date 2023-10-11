@@ -9,7 +9,7 @@ int partitionLomuto(int* vec, int ini_pos, int last_pos)
 {
     int j, i = ini_pos;
     for(j = ini_pos; j < last_pos; j++)
-    {
+{
         if(vec[j] <= vec[last_pos])
         {
             swapByValue(&vec[j], &vec[i]);
