@@ -1,14 +1,34 @@
+use std::fs::File;
+use std::io::{Read, Result};
+use byteorder::{ReadBytesExt, LittleEndian};
+
 mod sorts;
+use sorts::bubble_sort::bubble_sort;
+use sorts::quick_sort::quick_sort;
+
+
+
+fn read_vector_from_file(file_path: &str) -> Result<Vec<i32> > {
+    let mut file = File::open(file_path)?;
+    let mut vector = Vec::new();
+
+    while let Ok(value) = file.read_i32::<LittleEndian>() {
+        vector.push(value);
+    }
+
+    Ok(vector)
+}
+
 
 fn main(){
-    let mut vec: Vec<i32> = vec![6, 5, 4, 3, 2, 1];
-    let v_len: usize = vec.len();
-    println!("Vector before quick sorting: {:?}", vec);
-    sorts::quick_sort::quick_sort(&mut vec, 0, v_len - 1);
-    println!("Vector after quick sorting: {:?}", vec);
-
-    let mut vec2: Vec<i32> = vec![10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
-    println!("Vector before bubble sorting: {:?}", vec2);
-    sorts::bubble_sort::bubble_sort(&mut vec2);
-    println!("Vector after bubble sorting: {:?}", vec2);
+    let file_path: String = "E:\\Projects\\educationalAlgorithms\\assets\\array_big.dat".to_owned();
+    match read_vector_from_file(&file_path) {
+        Ok(mut vector) => {
+            // println!("Sorting the array using bubble sort...{:?}", vector);
+            println!("Sorting the array using bubble sort...");
+            bubble_sort(&mut vector);
+            println!("Array sorted!");
+        }
+        Err(e) => eprintln!("Error: {}", e),
+    }
 }
