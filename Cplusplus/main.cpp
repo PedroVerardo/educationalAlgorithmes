@@ -10,6 +10,6 @@ int main(void)
 
     selectionSort(vec, tam);
     print(vec, tam);
-    quickSort(vec2,0, tam2 - 1);
+    bubbleSort(vec2, tam2);
     print(vec2, tam2);
 }

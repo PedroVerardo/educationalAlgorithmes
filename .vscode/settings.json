@@ -7,5 +7,6 @@
         "./Rust_Implementation/Cargo.toml",
         "./Rust_Implementation/Cargo.toml"
     ],
-    "rust-analyzer.showUnlinkedFileNotification": false
+    "rust-analyzer.showUnlinkedFileNotification": false,
+    "C_Cpp.errorSquiggles": "disabled"
 }

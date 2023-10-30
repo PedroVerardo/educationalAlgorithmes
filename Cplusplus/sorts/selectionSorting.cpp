@@ -7,7 +7,7 @@
 *                                                               *
 * n + (n-1) + (n-2) +... + 2 + 1 = n + n*(n - 1)/2 = n*(n + 1)/2*
 *--------------------------------------------------------------*/
-int selectionSort(int* a, int tam)
+void selectionSort(int* a, int tam)
 {
     int min;
     int pos;
@@ -24,8 +24,6 @@ int selectionSort(int* a, int tam)
         }
         swapByPos(a,i,pos);
     }
-
-    return 1;
 }
 
 void doulbleSelectionSort(int* a, int tam)
