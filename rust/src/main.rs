@@ -1,35 +1,34 @@
-use sorts::quick_sort;
 use std::fs::File;
-use std::io::Read;
-use std::mem;
+use std::io::{Read, Result};
+use byteorder::{ReadBytesExt, LittleEndian};
 
-pub fn read_from_dat_into_vector(filename: &str) -> Vec<i32> {
-    let mut file = File::open(filename).expect("Failed to open file");
-    let file_len = file.metadata().expect("Failed to get file metadata").len() as usize;
-    let mut data: Vec<i32> = vec![0; file_len / mem::size_of::<i32>()];
+mod sorts;
+use sorts::bubble_sort::bubble_sort;
+use sorts::quick_sort::quick_sort;
 
-    let data_slice_bytes: &mut [u8] = unsafe {
-        let data_slice_i32: &mut [i32] = data.as_mut_slice();
-        let data_ptr: *mut i32 = data_slice_i32.as_mut_ptr();
-        std::slice::from_raw_parts_mut(data_ptr as *mut u8, file_len)
-    };
 
-    file.read_exact(data_slice_bytes).expect("Failed to read from file");
 
-    let data_slice_i32: &mut [i32] =
-        unsafe { mem::transmute(data_slice_bytes) };
+fn read_vector_from_file(file_path: &str) -> Result<Vec<i32> > {
+    let mut file = File::open(file_path)?;
+    let mut vector = Vec::new();
 
-    data.truncate(data_slice_i32.len());
+    while let Ok(value) = file.read_i32::<LittleEndian>() {
+        vector.push(value);
+    }
 
-    return data;
+    Ok(vector)
 }
 
+
 fn main(){
-    let file: &str = "/home/barbosa/Github/educationalAlgorithms/assets/";
-
-    let mut vector: Vec<i32> = read_from_dat_into_vector(file);
-    quick_sort(vector);
-
-
-    
+    let file_path: String = "E:\\Projects\\educationalAlgorithms\\assets\\array_big.dat".to_owned();
+    match read_vector_from_file(&file_path) {
+        Ok(mut vector) => {
+            // println!("Sorting the array using bubble sort...{:?}", vector);
+            println!("Sorting the array using bubble sort...");
+            bubble_sort(&mut vector);
+            println!("Array sorted!");
+        }
+        Err(e) => eprintln!("Error: {}", e),
+    }
 }

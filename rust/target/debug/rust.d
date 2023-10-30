@@ -1,1 +1,1 @@
-/home/barbosa/Github/educationalAlgorithms/rust/target/debug/rust: /home/barbosa/Github/educationalAlgorithms/rust/src/main.rs
+E:\Projects\educationalAlgorithms\rust\target\debug\rust.exe: E:\Projects\educationalAlgorithms\rust\src\main.rs E:\Projects\educationalAlgorithms\rust\src\sorts\bubble_sort.rs E:\Projects\educationalAlgorithms\rust\src\sorts\mod.rs E:\Projects\educationalAlgorithms\rust\src\sorts\quick_sort.rs
